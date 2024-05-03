@@ -23,8 +23,10 @@ function Herosection() {
               <p>space_available : {elem.space_available}</p>
               <p>type : {elem.type}</p>
               <p>cluster : {elem.cluster}</p>
-              <p>is_registered : {elem.is_registered}</p>
-              <p>is_live : {elem.is_live}</p>
+              <p>
+                is_registered : {elem.is_registered === true ? "true" : "false"}
+              </p>
+              <p>is_live : {elem.is_live === true ? "true" : "false"}</p>
             </div>
           </NavLink>
         ))}

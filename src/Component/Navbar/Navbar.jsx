@@ -86,20 +86,89 @@ function Navbar() {
   };
 
   return (
-    <header>
-      <div className="header-text">
-        <h1>Warehouse</h1>
-      </div>
-      <div className="header-right">
-        <div className="input-box">
-          <input
-            type="text"
-            placeholder="Search by warehouse name"
-            onChange={(e) => filterDataFun(e.target.value)}
-          />
-        </div>
+    <>
+      <header>
+        <div className="box44">
+          <div className="header-text">
+            <h1 className="heading">Warehouse</h1>
+          </div>
+          <div className="header-right">
+            <div className="input-box">
+              <input
+                type="text"
+                placeholder="Search by warehouse name"
+                onChange={(e) => filterDataFun(e.target.value)}
+              />
+            </div>
 
-        <div className="filter">
+            <div className="filter">
+              <div className="filter-box">
+                <p
+                  onClick={() =>
+                    searchByTypeDispatch({ type: "city", payload: data })
+                  }
+                >
+                  City
+                  <span class="material-symbols-outlined expand">
+                    expand_more
+                  </span>
+                </p>
+                <ul style={{ display: visible === "city" ? "block" : "none" }}>
+                  {searchByType.map((elem) => (
+                    <li onClick={(e) => DropDownData(e, "city")}>{elem}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="filter-box">
+                <p
+                  onClick={() =>
+                    searchByTypeDispatch({ type: "cluster", payload: data })
+                  }
+                >
+                  Cluster
+                  <span class="material-symbols-outlined expand">
+                    expand_more
+                  </span>
+                </p>
+                <ul
+                  style={{ display: visible === "cluster" ? "block" : "none" }}
+                >
+                  {searchByType.map((elem) => (
+                    <li onClick={(e) => DropDownData(e, "cluster")}>{elem}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="filter-box">
+                <p
+                  onClick={() =>
+                    searchByTypeDispatch({
+                      type: "space_available",
+                      payload: data,
+                    })
+                  }
+                >
+                  Space available limit
+                  <span class="material-symbols-outlined expand">
+                    expand_more
+                  </span>
+                </p>
+                <ul
+                  style={{
+                    display: visible === "space_available" ? "block" : "none",
+                  }}
+                >
+                  {searchByType.map((elem) => (
+                    <li onClick={(e) => DropDownData(e, "space_available")}>
+                      {elem}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="filter2">
           <div className="filter-box">
             <p
               onClick={() =>
@@ -153,8 +222,8 @@ function Navbar() {
             </ul>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 
