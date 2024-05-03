@@ -1,0 +1,21 @@
+.hero-section {
+  padding: 10px;
+}
+.main-box {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.box {
+  border: 1px solid black;
+  min-width: calc(100% - 6px - 80.79%);
+  min-height: 270px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+@media screen and (max-width: 1024px) {
+}
