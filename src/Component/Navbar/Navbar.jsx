@@ -6,6 +6,7 @@ import { handelFilterWarehouseData } from "../../Redux/slice/AllWarehouseData";
 function Navbar() {
   const dispatch = useDispatch();
   let data = useSelector((state) => state.warehouseData.data);
+
   let [visible, setVisible] = useState(null);
   let reducerFun = (state, action) => {
     if (action.type === "city") {
@@ -83,7 +84,7 @@ function Navbar() {
       dispatch(handelFilterWarehouseData(filteredData));
     }
   };
-  console.log(visible);
+
   return (
     <header>
       <div className="header-text">

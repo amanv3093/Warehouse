@@ -1,15 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import data from "../../Data.json";
+import data from "../../Data.json"; // Update the import path accordingly
 
 export const warehouseDataSlice = createSlice({
   name: "warehouseDataSlice",
   initialState: { data: data, data2: data },
   reducers: {
-    handelWarehouseData: () => {
-      console.log(data);
+    handelWarehouseData: (state, action) => {
+      console.log(action.payload);
+      let x = action.payload;
+      state.data = x;
+      state.data2 = x;
     },
-    handelFilterWarehouseData: (state, actions) => {
-      state.data2 = actions.payload;
+    handelFilterWarehouseData: (state, action) => {
+      state.data2 = action.payload;
       console.log(state.data2);
     },
   },
